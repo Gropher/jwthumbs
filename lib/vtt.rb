@@ -15,7 +15,7 @@ module Jwthumbs
 			thumb_rate = movie.seconds_between
 			count = images_count
 
-			vtt = ["WEBVTT",""]
+			vtt = []
 			clipstart = 0
 			clipend = clipstart + thumb_rate
 			
@@ -24,6 +24,7 @@ module Jwthumbs
 				xywh = get_grid_coordinates(x,gridsize,w,h)
 				start = get_time_str(clipstart)
 				clip_end = get_time_str(clipend)
+        vtt.push("#{x}")
 				vtt.push("#{start} --> #{clip_end}")
 				vtt.push("#{spritefile}#xywh=#{xywh}")
 				vtt.push("")
