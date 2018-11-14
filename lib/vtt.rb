@@ -25,7 +25,7 @@ module Jwthumbs
 				start = get_time_str(clipstart)
 				clip_end = get_time_str(clipend)
         vtt.push("#{x}")
-				vtt.push("#{start} --> #{clip_end}")
+				vtt.push("#{start},000 --> #{clip_end},000")
 				vtt.push("#{spritefile}#xywh=#{xywh}")
 				vtt.push("")
 				clipstart = clipend
