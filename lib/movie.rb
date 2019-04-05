@@ -11,7 +11,7 @@ module Jwthumbs
 			raise Errno::ENOENT, "the file '#{file_path}' does not exist" unless File.exists?(file_path)
 
 			command = "ffprobe -i #{file_path} -show_format | grep duration"
-			output = Open3.popen3(command) { |stdin, stdout, stderr| stderr.read }
+			output = Open3.popen3(command) { |stdin, stdout, stderr| stderr.read.force_encoding("UTF-8") }
 			output[/Duration: (\d{2}):(\d{2}):(\d{2}\.\d{2})/]
 			@duration = ($1.to_i*60*60) + ($2.to_i*60) + $3.to_f
 
